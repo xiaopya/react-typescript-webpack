@@ -1,5 +1,2 @@
-# react-typescript-eslint-webpack
+# react-typescript-eslint-webpack  antd按需加载  路由
 
-Webpack template for a React app with TypeScript and ESLint
-
-this template copy from: https://github.com/carlrip/react-typescript-eslint-webpack

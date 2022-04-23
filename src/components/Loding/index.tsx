@@ -1,22 +1,22 @@
-import React, { FunctionComponent } from "react";
-import { Spin } from "antd";
+import React, {FC} from "react";
+import {Spin} from "antd";
 import "./loading.less";
-import { LoadingOutlined } from "@ant-design/icons";
+import {LoadingOutlined} from "@ant-design/icons";
 
 interface propsType {
-  tip?: string;
+    tip?: string;
 }
 
-const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
+const antIcon = <LoadingOutlined style={{fontSize: 24}} spin/>;
 
-export const Loadings: FunctionComponent<propsType> = (props) => {
-  return (
-    <div className="liziyuan-loading">
-      <Spin indicator={antIcon} tip={props.tip} />
-    </div>
-  );
+export const Loadings: FC<propsType> = (props) => {
+    return (
+        <div className="liziyuan-loading">
+            <Spin indicator={antIcon} tip={props.tip}/>
+        </div>
+    );
 };
 
 Loadings.defaultProps = {
-  tip: "加载中...",
+    tip: "加载中...",
 };

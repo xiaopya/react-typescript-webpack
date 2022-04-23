@@ -1,17 +1,15 @@
-import React, { FunctionComponent, useEffect } from "react";
-import { notification, Button } from "antd";
+import React, {FC, useEffect} from "react";
+import {notification} from "antd";
 
-const Home: FunctionComponent = () => {
-  useEffect(() => {
-    notification.open({
-      message: "欢迎来到路由页面",
-    });
-  }, []);
-  return (
-    <div>
-      <Button>路由页面</Button>
-    </div>
-  );
+const Home: FC = () => {
+    useEffect(() => {
+        notification.open({
+            message: "欢迎来到路由页面",
+        });
+    }, []);
+    return (
+        <div>这是第一个页面</div>
+    );
 };
 
 export default Home;

@@ -1,15 +1,16 @@
-// import "antd/dist/antd.less";
+import "./styles/index.less";
+import React, {FC, Suspense} from "react";
+import {RoutesLayout} from "@/layout/RouteLayout";
+import {Loadings} from "@/components/Loding";
 
-import React, { Suspense, FunctionComponent } from "react";
-import { RoutesLayout } from "@/layout/RouteLayout";
-import { Loadings } from "@/components/Loding";
-
-const App: FunctionComponent = () => {
-  return (
-    <Suspense fallback={<Loadings />}>
-      <RoutesLayout />
-    </Suspense>
-  );
+const App: FC = () => {
+    return (
+        <div id="liziyuan-container">
+            <Suspense fallback={<Loadings/>}>
+                <RoutesLayout/>
+            </Suspense>
+        </div>
+    );
 };
 
 export default App;

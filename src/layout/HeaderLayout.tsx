@@ -1,10 +1,11 @@
+import './headerlayout.less';
 import _ from "lodash";
-import React, { FunctionComponent } from "react";
-import { NavLink } from "react-router-dom";
-import type { IRoute } from "@/types/route";
+import React, {FC} from "react";
+import {NavLink} from "react-router-dom";
+import type {IRoute} from "@/types/route";
 
-interface IHeaderLayoutProps {
-  routes: unknown;
+interface HeaderLayoutProps {
+    routes: IRoute[];
 }
 
 /**
@@ -12,37 +13,27 @@ interface IHeaderLayoutProps {
  * @param props
  * @returns
  */
-export const HeaderLayout: FunctionComponent<IHeaderLayoutProps> = (props) => {
-  const { routes } = props;
+export const HeaderLayout: FC<HeaderLayoutProps> = (props) => {
+    const {routes} = props;
+    const getMenuItem = (menuArr: IRoute[]) => {
+        // 获取菜单项
+        return _.map(menuArr, (route: IRoute) => {
+            if (route.hidden !== false) {
+                /**
+                 * 这里可以处理多层级菜单
+                 */
+                return (
+                    <NavLink to={route.path} key={route.path}>
+                        {route.meta?.title}
+                    </NavLink>
+                );
+            }
+        });
+    };
 
-  const getMenuItem = (menuArr: any) => {
-    // 获取菜单项
-    return _.map(menuArr, (route: IRoute) => {
-      if (route.hidden !== false) {
-        // if (route?.children) {
-        //   // 有多级菜单时
-        //   return (
-        //     // 重复调用函数渲染出子级菜单
-        //     <span>{getMenuItem(route.children)}</span>
-        //   );
-        // }
-        return (
-          <NavLink to={route.path} key={route.path}>
-            {route.meta.title}
-          </NavLink>
-        );
-      }
-    });
-  };
-
-  return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-evenly",
-      }}
-    >
-      {getMenuItem(routes)}
-    </div>
-  );
+    return (
+        <div className="header-layout">
+            {getMenuItem(routes)}
+        </div>
+    );
 };

@@ -21,7 +21,7 @@ const config: Configuration = {
                     loader: "babel-loader",
                     options: {
                         plugins: [
-                            ["import", {libraryName: "antd", style: "css"}], //antd按需加载
+                            ["import", {libraryName: "antd", style: "css"}], // antd按需加载
                         ],
                         cacheDirectory: true,
                         presets: [
@@ -41,6 +41,7 @@ const config: Configuration = {
                     {
                         loader: "style-resources-loader",
                         options: {
+                            // 不需要在每个页面中再去引入 less文件
                             patterns: [path.resolve(__dirname, "./src/styles/variable.less")],
                         },
                     },

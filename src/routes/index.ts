@@ -1,11 +1,5 @@
-// import Loadable from "react-loadable";
-// import { loading } from "@/components/Loading";
-import {lazy} from "react";
 import {IRoute} from "@/types/route";
-
-export const Home = lazy(() => import("@/pages/Home"));
-export const Child = lazy(() => import("@/pages/Child"));
-
+import {Child, Home, New} from './loadable'
 
 const routes: IRoute[] = [
     {
@@ -30,6 +24,13 @@ const routes: IRoute[] = [
                 },
             },
         ],
+    },
+    {
+        path: '/new',
+        component: New,
+        meta: {
+            title: 'new页面',
+        },
     },
     {
         path: "/*",

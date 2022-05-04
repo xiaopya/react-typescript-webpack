@@ -1,7 +1,7 @@
 import "./styles/index.less";
 import React, {FC, Suspense} from "react";
 import {RoutesLayout} from "@/layout/RouteLayout";
-import {Loadings} from "@/components/Loding";
+import {Loadings} from "@/components/Loading";
 
 const App: FC = () => {
     return (

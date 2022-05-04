@@ -1,10 +1,11 @@
-import React, {FC} from "react";
+import type {FC} from "react";
+import React from "react";
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 
 import routes from "@/routes";
 import type {IRoute} from "@/types/route";
 
-import {HeaderLayout} from "./HeaderLayout";
+import HeaderLayout from "./HeaderLayout";
 
 /**
  * 路由

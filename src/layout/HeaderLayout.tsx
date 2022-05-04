@@ -1,10 +1,11 @@
 import './headerlayout.less';
 import _ from "lodash";
-import React, {FC} from "react";
+import type {FC} from 'react';
+import React from "react";
 import {NavLink} from "react-router-dom";
 import type {IRoute} from "@/types/route";
 
-interface HeaderLayoutProps {
+export interface HeaderLayoutProps {
     routes: IRoute[];
 }
 
@@ -13,8 +14,10 @@ interface HeaderLayoutProps {
  * @param props
  * @returns
  */
-export const HeaderLayout: FC<HeaderLayoutProps> = (props) => {
+const HeaderLayout: FC<HeaderLayoutProps> = (props) => {
+
     const {routes} = props;
+
     const getMenuItem = (menuArr: IRoute[]) => {
         // 获取菜单项
         return _.map(menuArr, (route: IRoute) => {
@@ -31,9 +34,12 @@ export const HeaderLayout: FC<HeaderLayoutProps> = (props) => {
         });
     };
 
-    return (
+    const HeaderLayoutElement = (
         <div className="header-layout">
             {getMenuItem(routes)}
         </div>
-    );
+    )
+
+    return HeaderLayoutElement;
 };
+export default HeaderLayout;

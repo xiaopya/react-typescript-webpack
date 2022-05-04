@@ -1,7 +1,9 @@
-import React, {FC} from "react";
+import type {FC} from "react";
+import React from "react";
 import {Spin} from "antd";
 import "./loading.less";
 import {LoadingOutlined} from "@ant-design/icons";
+import Loadable from "react-loadable";
 
 interface propsType {
     tip?: string;
@@ -17,6 +19,17 @@ export const Loadings: FC<propsType> = (props) => {
     );
 };
 
+
+export function Lazy(ipt: () => Promise<any>): any {
+    return Loadable({
+        loader: ipt,
+        loading() {
+            return <Loadings/>;
+        },
+    })
+}
+
 Loadings.defaultProps = {
     tip: "加载中...",
 };
+
